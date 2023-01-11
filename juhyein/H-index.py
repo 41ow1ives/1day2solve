@@ -12,3 +12,21 @@ def solution(citations):
             break
     
     return h
+
+
+#참고1
+
+def solution(citations):
+    citations.sort(reverse=True)
+    answer = max(map(min, enumerate(citations, start=1)))
+    return answer
+
+
+#참고2
+def solution(citations):
+    citations = sorted(citations)
+    l = len(citations)
+    for i in range(l):
+        if citations[i] >= l-i:
+            return l-i
+    return 0
