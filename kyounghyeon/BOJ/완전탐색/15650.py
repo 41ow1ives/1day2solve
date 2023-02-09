@@ -4,7 +4,7 @@
 
 n, m = map(int, input().split())
 ans = []
-existed = [False] * n
+existed = [False] * (n+1)
 
 def Comb(x):
 
