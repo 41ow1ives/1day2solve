@@ -1,25 +1,19 @@
-# 제목 : N과 M (2)
+# 제목 : N과 M (4)
 # 분류 : 백트래킹, Silver 3
-# 출처 : 백준 15650
+# 출처 : 백준 15652
 
 n, m = map(int, input().split())
 ans = []
-existed = [False] * (n+1)
 
-def Comb(x):
+def H(x):
 
     if len(ans) == m:
         print(' '.join(map(str, ans)))
         return
 
     for i in range(x, n+1):
-        if existed[i]:
-            continue
-
         ans.append(i)
-        existed[i] = True
-        Comb(i+1)
+        H(i)
         ans.pop()
-        existed[i] = False
 
-Comb(1)
+H(1)
