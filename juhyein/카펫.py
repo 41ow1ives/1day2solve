@@ -6,3 +6,4 @@ def solution(brown, yellow):
         m = nm//n
         if (n-2)*(m-2) == yellow:
             return sorted([n, m], reverse = True)
+ 
