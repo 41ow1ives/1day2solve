@@ -1,6 +1,7 @@
 # 제목 : N-Queen
 # 분류 : 완전탐색/백트래킹, Gold 4
 # 출처 : 백준 9663
+#
 
 n = int(input())
 chess = [0 for _ in range(n)]
