@@ -3,12 +3,11 @@
 # 출처 : 백준 14889
 
 '''백트래킹으로 구하기'''
-import sys
-input = sys.stdin.readline
+
 n = int(input())
-S = [list(map(int,input().split())) for _ in range(n)]
 visited = [False for _ in range(n)]
-score = 1e9
+S = [list(map(int, input().split())) for _ in range(n)]
+score = int(1e9)
 
 def dfs(depth, idx):
     global score
@@ -18,7 +17,7 @@ def dfs(depth, idx):
             for j in range(n):
                 if visited[i] and visited[j]:
                     team1 += S[i][j]
-                elif not visited[i] and visited[j]:
+                elif not visited[i] and not visited[j]:
                     team2 += S[i][j]
         score = min(score, abs(team1-team2))
         return
