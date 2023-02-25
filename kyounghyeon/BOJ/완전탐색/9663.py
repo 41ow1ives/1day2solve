@@ -1,34 +1,32 @@
 # 제목 : N-Queen
 # 분류 : 완전탐색/백트래킹, Gold 4
 # 출처 : 백준 9663
-#
 
 n = int(input())
 chess = [0 for _ in range(n)]
 cnt = 0
+visited = [False] * n
 
-def possible(row, col): # x행 i열에 퀸을 둘 경우
-    for k in range(row): # x행보다 작은 행들 (이미 퀸이 있는 행에 대해)
-        if col == chess[k] or (row - k == abs(col - chess[k])):
-            '''
-            i == chess[k] : 같은 열에 퀸이 존재
-            x - k == abs(i - chess[k]) : 대각선에 퀸이 존재
-            '''
+def possible(row):  # row행 col열에 퀸을 둘 경우
+    for k in range(row):  # row행보다 작은 행들에 대해 (이미 퀸이 있는 행에 대해)
+        if row - k == abs(chess[row] - chess[k]):
             return False
     return True
 
 def dfs(row):
-
     global cnt
     if row == n:
         cnt += 1
         return
 
     for i in range(n):
-        if possible(row, i):
-            chess[row] = i
-            dfs(row+1)
-            chess[row] = 0
+        if visited[i]: continue  # i열은 이미 있으므로 pass
+
+        chess[row] = i
+        if possible(row):
+            visited[i] = True
+            dfs(row + 1)
+            visited[i] = False
 
 dfs(0)
 print(cnt)
