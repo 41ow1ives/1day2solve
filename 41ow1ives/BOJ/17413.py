@@ -1,6 +1,40 @@
 # https://www.acmicpc.net/problem/17413
 # 단어 뒤집기 2 (Silver III)
 
+####### 스택으로 접근
+import sys
+
+sentence = list(sys.stdin.readline().rstrip()) + [" "]
+answer = []
+tmp = ''
+flag = False
+
+for s in sentence:
+
+    if flag:
+        answer.append(s)
+    else:
+        if s == " ":  # 공백의 경우에는 포함이 되어야 함
+            tmp = tmp[::-1]
+            tmp += s
+            answer.append(tmp)
+            tmp = ''
+        elif s == "<":  # 반면 <는 포함되면 안됨
+            answer.append(tmp[::-1])
+            tmp = ''
+        else:
+            tmp += s
+
+    if s == "<":
+        flag = True
+        answer.append(s)
+    elif s == ">":
+        flag = False  # 맨 위에서 >는 append 해줬음
+
+print("".join(answer))
+
+"""
+###### 구현으로 접근
 import sys
 
 sentence = list(sys.stdin.readline().rstrip()) + [
@@ -29,6 +63,7 @@ while idx < len(sentence):
         idx += 1
 
 print("".join(sentence).rstrip())
+"""
 
 """
 ####### 틀린 경우
