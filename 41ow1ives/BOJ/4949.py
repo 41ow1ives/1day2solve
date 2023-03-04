@@ -5,14 +5,14 @@ stack = []
 next_input = input()
 
 while next_input != ".":
-    for chr in next_input:
-        if chr in ["(", "[", ")", "]"]:
-            stack.append(chr)
-        if chr == ")" and len(stack) != 1:
+    for c in next_input:
+        if c in ["(", "[", ")", "]"]:
+            stack.append(c)
+        if c == ")" and len(stack) != 1:
             if stack[-2] == "(":
                 stack.pop()
                 stack.pop()
-        elif chr == "]" and len(stack) != 1:
+        elif c == "]" and len(stack) != 1:
             if stack[-2] == "[":
                 stack.pop()
                 stack.pop()
