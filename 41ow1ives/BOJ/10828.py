@@ -11,6 +11,7 @@ n = int(sys.stdin.readline())
 answer = []
 
 for _ in range(n):
+
     input_ = sys.stdin.readline().split()
     order = input_[0]
 
