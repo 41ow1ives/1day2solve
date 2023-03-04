@@ -13,4 +13,5 @@ for _ in range(k):
         answer.pop()
     else:
         answer.append(n)
+
 print(sum(answer))
