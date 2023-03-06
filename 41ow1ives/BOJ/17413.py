@@ -1,7 +1,7 @@
 # https://www.acmicpc.net/problem/17413
 # 단어 뒤집기 2 (Silver III)
 
-####### 스택으로 접근
+####### 스택으로 접근 (이게..스택?)
 import sys
 
 sentence = list(sys.stdin.readline().rstrip()) + [" "]
