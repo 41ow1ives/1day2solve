@@ -16,7 +16,7 @@ for i in range(n-1, -1, -1):
   
   # 상담이 기간 안에 끝나는 경우
   if time <= n:
-    dp[i] = max(p[i]+d[time], max_value)
+    dp[i] = max(p[i]+dp[time], max_value)
     max_value = dp[i]
     
   else:
@@ -24,3 +24,4 @@ for i in range(n-1, -1, -1):
  
 print(max_value)
 
+ 
