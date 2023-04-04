@@ -1,4 +1,5 @@
-#dp테이블 : 이차원 리스트
+
+#dp list : 길이가 i일때 그 자리가 j인 경우 계단 수의 길이
 N = int(input())
 
 dp = [[0]*10 for _ in range(N+1)]
